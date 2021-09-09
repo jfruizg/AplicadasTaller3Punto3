@@ -5,7 +5,7 @@ def aplicarNumerosAbecedario(abecedario):
     return matriz
 
 def algortimoRSA(listaMensaje, clave_e, clave_n,matrizAbc,listaAbecedario):
-    hola = ""
+    resultado_algoritmo = ""
     result = ""
     contador1= 0
     for i in range(0,len(listaMensaje)):
@@ -17,8 +17,8 @@ def algortimoRSA(listaMensaje, clave_e, clave_n,matrizAbc,listaAbecedario):
 
             if(str(modulo) == listaMensaje[i]):
                 result = result + str(modulo)
-                hola = hola + listaAbecedario[matrizAbc[j]]
-    return hola
+                resultado_algoritmo = resultado_algoritmo + listaAbecedario[matrizAbc[j]]
+    return resultado_algoritmo
 
 def primeraLetra(mensaje):
     result = ""
