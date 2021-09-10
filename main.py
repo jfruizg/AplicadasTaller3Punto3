@@ -1,51 +1,49 @@
-def aplicarNumerosAbecedario(abecedario):
-    matriz = []
-    for i in range(0, len(abecedario)):
-        matriz.append(i)
-    return matriz
+def numberAphabet(abc):
+    array = []
+    for i in range(0, len(abc)):
+        array.append(i)
+    return array
 
-def algortimoRSA(listaMensaje, clave_e, clave_n,matrizAbc,listaAbecedario):
-    resultado_algoritmo = ""
+def algorithmRSA(messageList, password_e, password_n,abcArray,abcList):
+    algorithm_result = ""
     result = ""
-    contador1= 0
-    for i in range(0,len(listaMensaje)):
-        for j in range(0,len(matrizAbc)):
+    cont= 0
+    for i in range(0,len(messageList)):
+        for j in range(0,len(abcArray)):
             """se busca elevar a la clave e (primer paso)"""
-            contador1 = matrizAbc[j] ** clave_e
+            cont = abcArray[j] ** password_e
             """Se saca el modulo del resultado elevado (Segundo paso)"""
-            modulo = contador1 % clave_n
+            modulo = cont % password_n
 
-            if(str(modulo) == listaMensaje[i]):
+            if(str(modulo) == messageList[i]):
                 result = result + str(modulo)
-                resultado_algoritmo = resultado_algoritmo + listaAbecedario[matrizAbc[j]]
-    return resultado_algoritmo
+                algorithm_result = algorithm_result + abcList[abcArray[j]]
+    return algorithm_result
 
-def primeraLetra(mensaje):
+def threeLetter(menssge):
     result = ""
     for i in range(0,3):
-        result = result + mensaje[i]
+        result = result + menssge[i]
     return result
 
-
-
 if __name__ == '__main__':
-    abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
-    listaAbecedario1 = list(abecedario)
-    matrizNumero = aplicarNumerosAbecedario(abecedario)
+    abc = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"
+    abcList = list(abc)
+    numberArray = numberAphabet(abc)
 
-    mensajeAlicia = "26 2 15 16 6 0 13".split()
-    mensajeBenito = "22 8 10 9 18 0".split()
+    aliciaMessage = "26 2 15 16 6 0 13".split()
+    benitoMessage = "22 8 10 9 18 0".split()
 
-    clave_n_alicia = 33
-    clave_e_alicia = 7
+    password_n_alicia = 33
+    password_e_alicia = 7
 
-    clave_n_benito = 39
-    clave_e_benito = 5
+    password_n_benito = 39
+    password_e_benito = 5
 
-    resultadoAlicia = algortimoRSA(mensajeAlicia,clave_e_alicia,clave_n_alicia,matrizNumero,listaAbecedario1)
-    resultadoBenito = algortimoRSA(mensajeBenito, clave_e_benito, clave_n_benito, matrizNumero, listaAbecedario1)
+    aliciaResult = algorithmRSA(aliciaMessage,password_e_alicia,password_n_alicia,numberArray,abcList)
+    benitoResult = algorithmRSA(benitoMessage, password_e_benito, password_n_benito, numberArray, abcList)
 
-    print(resultadoAlicia)
-    print(resultadoBenito)
-    print(primeraLetra(resultadoAlicia))
-    print(primeraLetra(resultadoBenito))
+    print(aliciaResult)
+    print(benitoResult)
+    print(threeLetter(aliciaResult))
+    print(threeLetter(benitoResult))
