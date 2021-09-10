@@ -1,8 +1,23 @@
+"""
+
+This method overwrite the alphabet in numbers
+
+"""
+
+
 def numberAphabet(abc):
     array = []
     for i in range(0, len(abc)):
         array.append(i)
     return array
+
+
+"""
+
+This mthod is the algotithm RSA , principal the idea is with the passwords
+complete the steps to overwrite the encrypt message to the original message
+
+"""
 
 def algorithmRSA(messageList, password_e, password_n,abcArray,abcList):
     algorithm_result = ""
@@ -10,15 +25,22 @@ def algorithmRSA(messageList, password_e, password_n,abcArray,abcList):
     cont= 0
     for i in range(0,len(messageList)):
         for j in range(0,len(abcArray)):
-            """se busca elevar a la clave e (primer paso)"""
+            """First step"""
             cont = abcArray[j] ** password_e
-            """Se saca el modulo del resultado elevado (Segundo paso)"""
-            modulo = cont % password_n
+            """Second step"""
+            mod = cont % password_n
 
-            if(str(modulo) == messageList[i]):
-                result = result + str(modulo)
+            if(str(mod) == messageList[i]):
+                result = result + str(mod)
                 algorithm_result = algorithm_result + abcList[abcArray[j]]
     return algorithm_result
+
+
+"""
+
+This method choce the three first letters 
+
+"""
 
 def threeLetter(menssge):
     result = ""
